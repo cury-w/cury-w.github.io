@@ -1,0 +1,1187 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="cury">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="首选：site:xxx.edu.cn 初始密码&#x2F;密码&#x2F;登录&#x2F;用户手册&#x2F;操作说明…… site:hueb.edu.cn filetype:xls 学号&#x2F;sfz…… 一、完整 Google Hacking 语法列表1. 基础操作符   操作符 说明 示例    site: 限定搜索特定域名或子域名 site:example.com   intitle:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="googlehacking">
+<meta property="og:url" content="https://cury-w.github.io/2025/06/24/googlehacking/index.html">
+<meta property="og:site_name" content="坤坤后花园">
+<meta property="og:description" content="首选：site:xxx.edu.cn 初始密码&#x2F;密码&#x2F;登录&#x2F;用户手册&#x2F;操作说明…… site:hueb.edu.cn filetype:xls 学号&#x2F;sfz…… 一、完整 Google Hacking 语法列表1. 基础操作符   操作符 说明 示例    site: 限定搜索特定域名或子域名 site:example.com   intitle:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-24T05:14:13.000Z">
+<meta property="article:modified_time" content="2025-06-24T05:15:27.368Z">
+<meta property="article:author" content="cury">
+<meta property="article:tag" content="googlehacking">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>googlehacking - 坤坤后花园</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cury-w.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+    
+
+<style type="text/css">
+    @keyframes spin3D {
+        from {
+            transform: rotate3d(0.5, 0.5, 0.5, 360deg);
+        }
+
+        to {
+            transform: rotate3d(0deg);
+        }
+    }
+
+    #loading {
+        height: 100%;
+        background-color: #172d4781;
+        backdrop-filter: saturate(100%) blur(10px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        z-index: 99999999;
+    }
+
+    .spinner-box {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+    }
+
+    .leo {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+
+    .blue-orbit {
+        width: 175px;
+        height: 175px;
+        border: 2px solid #1a91fa;
+        animation: spin3D 3s linear .2s infinite;
+    }
+
+    .green-orbit {
+        width: 135px;
+        height: 135px;
+        border: 2px solid #00ffdd;
+        animation: spin3D 2s linear 0s infinite;
+    }
+
+    .red-orbit {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #d75151;
+        animation: spin3D 1s linear 0s infinite;
+    }
+
+    .white-orbit-a {
+        width: 70px;
+        height: 70px;
+        border: 1px solid #faf5f5;
+        animation: spin3D 3s linear 0s infinite;
+    }
+
+    .white-orbit-b {
+        width: 70px;
+        height: 70px;
+        border: 1px solid #faf5f5;
+        animation: spin3D 1.5s linear 0s infinite;
+    }
+
+    .nucleus {
+        width: 1px;
+        height: 1px;
+        border: 1px solid #ffffff;
+        animation: spin3D 1s linear 0s infinite;
+    }
+</style>
+
+<div id="loading">
+    <div class="spinner-box">
+        <div class="blue-orbit leo"></div>
+        <div class="green-orbit leo"></div>
+        <div class="red-orbit leo"></div>
+        <div class="white-orbit-a leo"></div>
+        <div class="white-orbit-b leo"></div>
+        <div class="nucleus leo"></div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        const loaded = function () {
+            window.onload = function () {
+                const loader = document.getElementById("loading");
+                loader.className = "fadeout";
+                setTimeout(function () {
+                    loader.style.display = "none";
+                }, 
+                500
+                );
+            }
+        };
+        loaded();
+    })();
+</script>
+  
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title">坤坤后花园</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="googlehacking"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-24 13:14" pubdate>
+          2025年6月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">googlehacking</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="首选："><a href="#首选：" class="headerlink" title="首选："></a>首选：</h1><p>site:xxx.edu.cn 初始密码&#x2F;密码&#x2F;登录&#x2F;用户手册&#x2F;操作说明……</p>
+<p>site:hueb.edu.cn filetype:xls 学号&#x2F;sfz……</p>
+<h3 id="一、完整-Google-Hacking-语法列表"><a href="#一、完整-Google-Hacking-语法列表" class="headerlink" title="一、完整 Google Hacking 语法列表"></a><strong>一、完整 Google Hacking 语法列表</strong></h3><h4 id="1-基础操作符"><a href="#1-基础操作符" class="headerlink" title="1. 基础操作符"></a><strong>1. 基础操作符</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>操作符</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">site:</td>
+<td align="left">限定搜索特定域名或子域名</td>
+<td align="left">site:example.com</td>
+</tr>
+<tr>
+<td align="left">intitle:</td>
+<td align="left">标题包含关键词</td>
+<td align="left">intitle:”login”</td>
+</tr>
+<tr>
+<td align="left">allintitle:</td>
+<td align="left">标题包含所有指定关键词</td>
+<td align="left">allintitle:”admin” “dashboard”</td>
+</tr>
+<tr>
+<td align="left">inurl:</td>
+<td align="left">URL 路径包含关键词</td>
+<td align="left">inurl:&#x2F;admin</td>
+</tr>
+<tr>
+<td align="left">allinurl:</td>
+<td align="left">URL 路径包含所有指定关键词</td>
+<td align="left">allinurl:login.php?user&#x3D;</td>
+</tr>
+<tr>
+<td align="left">filetype:</td>
+<td align="left">搜索特定文件类型</td>
+<td align="left">filetype:pdf “confidential”</td>
+</tr>
+<tr>
+<td align="left">ext:</td>
+<td align="left">按文件扩展名搜索（同 filetype:）</td>
+<td align="left">ext:sql “password”</td>
+</tr>
+<tr>
+<td align="left">intext:</td>
+<td align="left">正文内容包含关键词</td>
+<td align="left">intext:”数据库密码”</td>
+</tr>
+<tr>
+<td align="left">allintext:</td>
+<td align="left">正文包含所有指定关键词</td>
+<td align="left">allintext:”username” “password”</td>
+</tr>
+<tr>
+<td align="left">cache:</td>
+<td align="left">查看 Google 缓存的页面</td>
+<td align="left">cache:example.com</td>
+</tr>
+<tr>
+<td align="left">related:</td>
+<td align="left">查找类似网站</td>
+<td align="left">related:github.com</td>
+</tr>
+<tr>
+<td align="left">info:</td>
+<td align="left">获取网站的 Google 摘要信息</td>
+<td align="left">info:example.com</td>
+</tr>
+<tr>
+<td align="left">define:</td>
+<td align="left">搜索词语定义</td>
+<td align="left">define:SQL注入</td>
+</tr>
+</tbody></table>
+<h4 id="2-逻辑操作符"><a href="#2-逻辑操作符" class="headerlink" title="2. 逻辑操作符"></a><strong>2. 逻辑操作符</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>操作符</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AND 或空格</td>
+<td align="left">同时满足多个条件</td>
+<td align="left">site:example.com 密码</td>
+</tr>
+<tr>
+<td align="left">OR</td>
+<td align="left">满足任意一个条件</td>
+<td align="left">漏洞 OR 后门</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">排除关键词</td>
+<td align="left">登录 -site:example.com</td>
+</tr>
+<tr>
+<td align="left">()</td>
+<td align="left">组合复杂逻辑</td>
+<td align="left">(inurl:admin OR intitle:admin) -论坛</td>
+</tr>
+</tbody></table>
+<h4 id="3-高级操作符"><a href="#3-高级操作符" class="headerlink" title="3. 高级操作符"></a><strong>3. 高级操作符</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>操作符</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">*</td>
+<td align="left">通配符（匹配任意字符）</td>
+<td align="left">“username:* password:*“</td>
+</tr>
+<tr>
+<td align="left">“…”</td>
+<td align="left">精确匹配短语</td>
+<td align="left">“您的密码错误”</td>
+</tr>
+<tr>
+<td align="left">..</td>
+<td align="left">数值范围搜索</td>
+<td align="left">价格 $100..$500</td>
+</tr>
+<tr>
+<td align="left">AROUND(N)</td>
+<td align="left">关键词间距不超过 N 个词</td>
+<td align="left">“密码” AROUND(5) “泄露”</td>
+</tr>
+<tr>
+<td align="left">weather:</td>
+<td align="left">搜索某地天气</td>
+<td align="left">weather:北京</td>
+</tr>
+<tr>
+<td align="left">stocks:</td>
+<td align="left">搜索股票代码</td>
+<td align="left">stocks:GOOG</td>
+</tr>
+</tbody></table>
+<h4 id="4-隐藏功能"><a href="#4-隐藏功能" class="headerlink" title="4. 隐藏功能"></a><strong>4. 隐藏功能</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>功能</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>时间筛选</strong></td>
+<td align="left">限定时间范围（通过搜索工具栏）</td>
+<td align="left">最近一年、自定义日期</td>
+</tr>
+<tr>
+<td align="left"><strong>图片搜索</strong></td>
+<td align="left">通过图片反向搜索敏感信息</td>
+<td align="left">上传图片查找来源</td>
+</tr>
+<tr>
+<td align="left"><strong>地图数据</strong></td>
+<td align="left">搜索暴露的地理标记信息</td>
+<td align="left">intitle:”security camera” site:google.com&#x2F;maps</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="二、组合示例大全（按场景分类）"><a href="#二、组合示例大全（按场景分类）" class="headerlink" title="二、组合示例大全（按场景分类）"></a><strong>二、组合示例大全（按场景分类）</strong></h3><h4 id="1-敏感文件泄露"><a href="#1-敏感文件泄露" class="headerlink" title="1. 敏感文件泄露"></a><strong>1. 敏感文件泄露</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>场景</strong></th>
+<th align="left"><strong>示例</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>数据库备份</strong></td>
+<td align="left">filetype:sql “DROP TABLE” site:example.com</td>
+<td align="left">搜索 SQL 备份文件</td>
+</tr>
+<tr>
+<td align="left"><strong>配置文件</strong></td>
+<td align="left">intitle:”index of” “config.php”</td>
+<td align="left">查找 PHP 配置文件</td>
+</tr>
+<tr>
+<td align="left"><strong>日志文件</strong></td>
+<td align="left">ext:log “error” “password”</td>
+<td align="left">包含密码的日志文件</td>
+</tr>
+<tr>
+<td align="left"><strong>密钥文件</strong></td>
+<td align="left">filetype:key private</td>
+<td align="left">私钥文件泄露</td>
+</tr>
+</tbody></table>
+<h4 id="2-后台与登录页面"><a href="#2-后台与登录页面" class="headerlink" title="2. 后台与登录页面"></a><strong>2. 后台与登录页面</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>场景</strong></th>
+<th align="left"><strong>示例</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>管理员后台</strong></td>
+<td align="left">intitle:”admin login” inurl:&#x2F;admin</td>
+<td align="left">未授权访问的管理页面</td>
+</tr>
+<tr>
+<td align="left"><strong>默认密码</strong></td>
+<td align="left">“默认密码” site:routerlogin.net</td>
+<td align="left">设备默认凭据</td>
+</tr>
+<tr>
+<td align="left"><strong>弱口令提示</strong></td>
+<td align="left">intext:”用户名或密码错误” inurl:login</td>
+<td align="left">登录页面错误信息</td>
+</tr>
+</tbody></table>
+<h4 id="3-漏洞利用"><a href="#3-漏洞利用" class="headerlink" title="3. 漏洞利用"></a><strong>3. 漏洞利用</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>场景</strong></th>
+<th align="left"><strong>示例</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>SQL 注入点</strong></td>
+<td align="left">inurl:”id&#x3D;” &amp; intext:”Warning: mysql”</td>
+<td align="left">存在报错信息的注入点</td>
+</tr>
+<tr>
+<td align="left"><strong>目录遍历</strong></td>
+<td align="left">intitle:”index of &#x2F;“ “parent directory”</td>
+<td align="left">开放目录列表</td>
+</tr>
+<tr>
+<td align="left"><strong>API 接口暴露</strong></td>
+<td align="left">inurl:&#x2F;api&#x2F;v1 intext:”apikey”</td>
+<td align="left">泄露的 API 密钥</td>
+</tr>
+</tbody></table>
+<h4 id="4-设备与系统"><a href="#4-设备与系统" class="headerlink" title="4. 设备与系统"></a><strong>4. 设备与系统</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>场景</strong></th>
+<th align="left"><strong>示例</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>网络摄像头</strong></td>
+<td align="left">inurl:&#x2F;view.shtml intitle:”Live View”</td>
+<td align="left">公开的摄像头流</td>
+</tr>
+<tr>
+<td align="left"><strong>路由器管理</strong></td>
+<td align="left">intitle:”RouterOS” “admin”</td>
+<td align="left">未授权的路由器配置页面</td>
+</tr>
+<tr>
+<td align="left"><strong>打印机控制台</strong></td>
+<td align="left">inurl:”&#x2F;hp&#x2F;device&#x2F;this.LCDispatcher”</td>
+<td align="left">惠普打印机管理界面</td>
+</tr>
+</tbody></table>
+<h4 id="5-开源情报（OSINT）"><a href="#5-开源情报（OSINT）" class="headerlink" title="5. 开源情报（OSINT）"></a><strong>5. 开源情报（OSINT）</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>场景</strong></th>
+<th align="left"><strong>示例</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>员工信息</strong></td>
+<td align="left">site:linkedin.com “CTO” “example.com”</td>
+<td align="left">通过 LinkedIn 收集员工职位</td>
+</tr>
+<tr>
+<td align="left"><strong>文档元数据</strong></td>
+<td align="left">filetype:docx “作者：张三”</td>
+<td align="left">从 Office 文档提取创建者信息</td>
+</tr>
+<tr>
+<td align="left"><strong>GitHub 泄露</strong></td>
+<td align="left">“github.com” “password” extension:env</td>
+<td align="left">GitHub 中的敏感环境变量文件</td>
+</tr>
+</tbody></table>
+<h4 id="6-错误信息泄露"><a href="#6-错误信息泄露" class="headerlink" title="6. 错误信息泄露"></a><strong>6. 错误信息泄露</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>场景</strong></th>
+<th align="left"><strong>示例</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>调试模式</strong></td>
+<td align="left">intext:”DEBUG MODE” “PHP”</td>
+<td align="left">开启调试模式的网站</td>
+</tr>
+<tr>
+<td align="left"><strong>数据库报错</strong></td>
+<td align="left">“ORA-12541: TNS 无监听程序”</td>
+<td align="left">Oracle 数据库错误信息</td>
+</tr>
+<tr>
+<td align="left"><strong>堆栈跟踪</strong></td>
+<td align="left">intext:”at java.lang.Thread”</td>
+<td align="left">Java 应用崩溃日志</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="三、高阶组合技巧"><a href="#三、高阶组合技巧" class="headerlink" title="三、高阶组合技巧"></a><strong>三、高阶组合技巧</strong></h3><h4 id="1-通配符与模糊搜索"><a href="#1-通配符与模糊搜索" class="headerlink" title="1. 通配符与模糊搜索"></a><strong>1. 通配符与模糊搜索</strong></h4><ul>
+<li>搜索带参数的 URL：<br>inurl:*.php?id&#x3D; *</li>
+<li>查找密码重置链接：<br>“password reset” site:example.com inurl:token&#x3D;*</li>
+</ul>
+<h4 id="2-时间范围限定"><a href="#2-时间范围限定" class="headerlink" title="2. 时间范围限定"></a><strong>2. 时间范围限定</strong></h4><ul>
+<li>查找近期泄露的数据库：<br>filetype:sql “INSERT INTO users” after:2023-01-01</li>
+</ul>
+<h4 id="3-混合逻辑精准定位"><a href="#3-混合逻辑精准定位" class="headerlink" title="3. 混合逻辑精准定位"></a><strong>3. 混合逻辑精准定位</strong></h4><ul>
+<li>排除干扰结果：<br>(intitle:”管理后台” OR inurl:&#x2F;admin) -site:gov.cn</li>
+<li>组合文件类型与关键词：<br>filetype:xls “员工工资” site:example.com</li>
+</ul>
+<h4 id="4-利用错误消息"><a href="#4-利用错误消息" class="headerlink" title="4. 利用错误消息"></a><strong>4. 利用错误消息</strong></h4><ul>
+<li>发现 SQL 注入漏洞：<br>“You have an error in your SQL syntax”</li>
+<li>识别配置错误：<br>“Access denied for user ‘root‘@’localhost’”</li>
+</ul>
+<hr>
+<h3 id="四、防御建议（补充）"><a href="#四、防御建议（补充）" class="headerlink" title="四、防御建议（补充）"></a><strong>四、防御建议（补充）</strong></h3><ol>
+<li><strong>robots.txt 配置</strong>：禁止爬虫访问敏感路径（如 &#x2F;admin、&#x2F;config）。</li>
+<li><strong>文件权限控制</strong>：避免将备份文件（.bak、.sql）存放在 Web 目录。</li>
+<li><strong>错误信息隐藏</strong>：自定义错误页面，避免暴露堆栈跟踪。</li>
+<li><strong>定期搜索自身</strong>：用 site:yourdomain.com 检查公开信息泄露。</li>
+</ol>
+<hr>
+<h3 id="五、工具增强"><a href="#五、工具增强" class="headerlink" title="五、工具增强"></a><strong>五、工具增强</strong></h3><ul>
+<li><strong>Google Dork 自动化</strong>：<ul>
+<li><a target="_blank" rel="noopener" href="https://www.exploit-db.com/google-hacking-database">GHDB</a>：直接搜索预定义的漏洞语法。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/...">DorkGenius</a>：自动生成高级 Dork 语句。</li>
+</ul>
+</li>
+<li><strong>监控与告警</strong>：<ul>
+<li>使用 Google Alerts 监控公司关键词（如 site:example.com password）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="六、合法与道德提醒"><a href="#六、合法与道德提醒" class="headerlink" title="六、合法与道德提醒"></a><strong>六、合法与道德提醒</strong></h3><ul>
+<li><strong>仅用于授权测试</strong>：渗透前需获得书面许可。</li>
+<li><strong>漏洞报告</strong>：发现漏洞后联系管理员，参考《<a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc9116">漏洞披露规范</a>》。</li>
+<li><strong>避免敏感数据</strong>：示例中的关键词均为演示用途，请勿针对真实系统测试。</li>
+</ul>
+<h3 id="七、语法解析与示例"><a href="#七、语法解析与示例" class="headerlink" title="七、语法解析与示例"></a><strong>七、语法解析与示例</strong></h3><h4 id="1-index-of-admin"><a href="#1-index-of-admin" class="headerlink" title="1. index of &#x2F;admin"></a><strong>1. index of &#x2F;admin</strong></h4><ul>
+<li><strong>用途</strong>：搜索开放目录列表中的 &#x2F;admin 目录（常见管理后台路径）。</li>
+<li><strong>风险</strong>：暴露后台登录页面、未授权访问管理界面。</li>
+<li><strong>防御</strong>：禁用目录列表（Apache: Options -Indexes），设置访问权限（如 IP 白名单）。</li>
+</ul>
+<h4 id="2-index-of-passwd"><a href="#2-index-of-passwd" class="headerlink" title="2. index of &#x2F;passwd"></a><strong>2. index of &#x2F;passwd</strong></h4><ul>
+<li><strong>用途</strong>：查找 Unix&#x2F;Linux 系统中的 &#x2F;etc&#x2F;passwd 文件（用户账户信息）。</li>
+<li><strong>风险</strong>：泄露用户名、UID&#x2F;GID 等敏感信息（现代系统密码存储在 &#x2F;etc&#x2F;shadow）。</li>
+<li><strong>防御</strong>：确保 &#x2F;etc&#x2F;passwd 文件权限为 644，禁止 Web 访问系统文件。</li>
+</ul>
+<h4 id="3-index-of-password"><a href="#3-index-of-password" class="headerlink" title="3. index of &#x2F;password"></a><strong>3. index of &#x2F;password</strong></h4><ul>
+<li><strong>用途</strong>：搜索包含 “password” 关键词的目录或文件（如明文密码文件）。</li>
+<li><strong>风险</strong>：直接获取明文密码或哈希值。</li>
+<li><strong>防御</strong>：避免在代码或文件中明文存储密码，使用环境变量或密钥管理服务。</li>
+</ul>
+<h4 id="4-index-of-mail"><a href="#4-index-of-mail" class="headerlink" title="4. index of &#x2F;mail"></a><strong>4. index of &#x2F;mail</strong></h4><ul>
+<li><strong>用途</strong>：查找邮件服务器或邮件存储目录（如 &#x2F;var&#x2F;mail）。</li>
+<li><strong>风险</strong>：泄露用户邮件内容、账户信息。</li>
+<li><strong>防御</strong>：限制邮件目录的 Web 访问权限，加密存储敏感数据。</li>
+</ul>
+<h4 id="5-“index-of-“-passwd"><a href="#5-“index-of-“-passwd" class="headerlink" title="5. “index of &#x2F;“ +passwd"></a><strong>5. “index of &#x2F;“ +passwd</strong></h4><ul>
+<li><strong>用途</strong>：在根目录下搜索 passwd 文件。</li>
+<li><strong>示例结果</strong>：可能发现 &#x2F;etc&#x2F;passwd 被错误链接到 Web 根目录。</li>
+<li><strong>防御</strong>：检查 Web 目录中是否存在符号链接到系统文件。</li>
+</ul>
+<h4 id="6-“index-of-“-password-txt"><a href="#6-“index-of-“-password-txt" class="headerlink" title="6. “index of &#x2F;“ +password.txt"></a><strong>6. “index of &#x2F;“ +password.txt</strong></h4><ul>
+<li><strong>用途</strong>：查找 Web 根目录下的 password.txt 文件。</li>
+<li><strong>风险</strong>：明文密码文件可直接下载。</li>
+<li><strong>防御</strong>：删除测试或临时文件，禁用目录列表。</li>
+</ul>
+<h4 id="7-“index-of-“-htaccess"><a href="#7-“index-of-“-htaccess" class="headerlink" title="7. “index of &#x2F;“ +.htaccess"></a><strong>7. “index of &#x2F;“ +.htaccess</strong></h4><ul>
+<li><strong>用途</strong>：暴露 Apache 服务器的 .htaccess 配置文件。</li>
+<li><strong>风险</strong>：泄露重定向规则、认证凭据（如 AuthUserFile 路径）。</li>
+<li><strong>防御</strong>：限制 .htaccess 文件权限（如 600），避免存储敏感信息。</li>
+</ul>
+<h4 id="8-“index-of-root”"><a href="#8-“index-of-root”" class="headerlink" title="8. “index of &#x2F;root”"></a><strong>8. “index of &#x2F;root”</strong></h4><ul>
+<li><strong>用途</strong>：搜索 Unix 系统超级用户（root）的主目录。</li>
+<li><strong>风险</strong>：泄露 root 用户的 SSH 密钥、脚本或日志。</li>
+<li><strong>防御</strong>：确保 &#x2F;root 目录权限为 700，禁止 Web 服务器访问。</li>
+</ul>
+<h4 id="9-“index-of-cgi-bin”"><a href="#9-“index-of-cgi-bin”" class="headerlink" title="9. “index of &#x2F;cgi-bin”"></a><strong>9. “index of &#x2F;cgi-bin”</strong></h4><ul>
+<li><strong>用途</strong>：查找 CGI 脚本目录（常见于老旧系统）。</li>
+<li><strong>风险</strong>：利用 CGI 漏洞（如 Shellshock）执行远程代码。</li>
+<li><strong>防御</strong>：升级或禁用 CGI 模块，设置严格的脚本权限。</li>
+</ul>
+<h4 id="10-“index-of-logs”"><a href="#10-“index-of-logs”" class="headerlink" title="10. “index of &#x2F;logs”"></a><strong>10. “index of &#x2F;logs”</strong></h4><ul>
+<li><strong>用途</strong>：暴露日志文件目录（如访问日志、错误日志）。</li>
+<li><strong>风险</strong>：日志中可能包含敏感信息（如 SQL 错误中的数据库密码）。</li>
+<li><strong>防御</strong>：将日志存储在非 Web 目录，定期清理并加密存档。</li>
+</ul>
+<h4 id="11-“index-of-config”"><a href="#11-“index-of-config”" class="headerlink" title="11. “index of &#x2F;config”"></a><strong>11. “index of &#x2F;config”</strong></h4><ul>
+<li><strong>用途</strong>：查找配置文件目录（如数据库连接信息）。</li>
+<li><strong>风险</strong>：泄露 config.php、settings.ini 等文件。</li>
+<li><strong>防御</strong>：将配置文件移出 Web 目录，使用环境变量注入配置。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/googlehacking/" class="print-no-link">#googlehacking</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>googlehacking</div>
+      <div>https://cury-w.github.io/2025/06/24/googlehacking/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>cury</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/06/23/begin/" title="begin">
+                        <span class="hidden-mobile">begin</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  <div>
+  <span id="timeDate">正在载入天数...</span>
+  <span id="times">载入时分秒...</span>
+  <script>
+  var now = new Date();
+  function createtime(){
+      var grt= new Date("06/23/2025 19:47:00");
+      now.setTime(now.getTime()+250);
+      days = (now - grt ) / 1000 / 60 / 60 / 24;
+      dnum = Math.floor(days);
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+      hnum = Math.floor(hours);
+      if(String(hnum).length ==1 ){
+          hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+                mnum = "0" + mnum;
+      }
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+                snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML = "🚀已持续航行&nbsp"+dnum+"&nbsp天";  
+      document.getElementById("times").innerHTML = hnum + "&nbsp时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+  }
+  setInterval("createtime()",250);
+  </script>
+</div>
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+<!-- 引入jQuery -->
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<!-- 雪花特效2 -->
+ <script type="text/javascript" src="/js/snow2.js"></script>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
